@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="pics/P.ico">
+
+    <title>PrimerBot!-Home</title>
+
+    <!-- Bootstrap core CSS -->
+   <link href="resources/bootstrap.min_flatly.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="resources/primerbot_style.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <!----google analytics-->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-45656713-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; 
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+  </head>
+
+  <body>
+	<!-- navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://primerbot.duhs.duke.edu/PrimerBot/index.html"></i>PrimerBot!</a>
+    </div>
+    <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+    <li class="active"><a href="http://primerbot.duhs.duke.edu/PrimerBot/index.html">Home</a></li>
+    <li><a href="http://primerbot.duhs.duke.edu/PrimerBot/#Design-mRNA">mRNA-qPCR</a></li>
+    <li><a href="http://primerbot.duhs.duke.edu/PrimerBot/#Design-ChIP">ChIP-qPCR</a></li>
+     <li><a href="http://primerbot.duhs.duke.edu/PrimerBot/#Design-About">About</a></li>
+    <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">Useful Links <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://probes.pw.usda.gov/batchprimer3/">BatchPrimer3</a></li>
+        		<li><a href="http://genome.ucsc.edu/cgi-bin/hgPcr?command=start">UCSC in-silico PCR</a></li>
+                <li><a href="http://llama.mshri.on.ca/synergizer/translate/">Convert Ids</a></li>
+        		<li><a href="http://miqe.gene-quantification.info/">MIQE Guidelines</a></li>
+              </ul>
+            </li>
+    </ul><ul class="nav navbar-nav navbar-right">
+      <li><a href="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html">McDonnell Lab</a></li>
+      <li><a href="http://medschool.duke.edu/">Duke University</a></li>
+      
+      <!--<li> <img src="pics/d_medicine_horz_rgb.png" width="315" height="60" alt="Duke_logo"></li> -->
+    </ul>
+    </div><!-- /.navbar-collapse -->
+    </div>
+
+	<!-- jumbotron header-->
+    <div class="myheader">
+    	<div class="jumbotron">
+      		<div class="container">
+        		<h1>Welcome to <span>Primer</span>Bot!</h1>
+        		<p style="text-indent: 5em;"> The simple way to generate qPCR primers.</p>
+      		</div>
+    	</div>
+    </div>
+    
+    <!-- heading -->
+    <div class="container">
+    <div class="row">
+    	<div class="lg-12">
+                <div class="page-header">
+                    <h1 id="type">qPCR Primer Design</h1>
+                </div>
+             </div>
+         </div>
+    </div>
+    
+     <!-- heading-intro text -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                 <p><strong>PrimerBot!</strong>  was specifically made for scientists to design qPCR primers quickly and efficiently in a high-throughput manner. Whether you are designing primers for mRNA or for ChIP studies this website simplifies the process and creates your primers from either a list of gene ids or from a bed file of your favorite peaks. By automating this repetitive task you can get back to working on more important parts of your project and to producing results that truly matter. All results are written to an excel file in a consistent format containing all parameters for good recordkeeping and ease of ordering.</p>
+        
+        <p>Human and mouse genomes are fully supported. Other organisms will work depending on Genbank support. </p>
+             </div>
+         </div>
+    </div>
+    
+	<!-- functions heading-->
+    <div class="container">
+    <div class="row">
+    	<div class="lg-12">
+                <div class="page-header">
+                    <h1 id="type">Main Functions</h1>
+                </div>
+             </div>
+         </div>
+    </div>
+    
+    
+ 
+   
+	<!-- main functions -->
+    <div class="container">
+        <div class="row" >
+            <div class="col-md-4 myfxn">
+            	<a href="#Design-mRNA" class="btn btn-info btn-large"> <h3>Design mRNA Primers</h3></a>
+              
+              
+            </div>
+            <div class="col-md-4 myfxn">
+              <a href="#Design-ChIP" class="btn btn-info btn-large"> <h3>Design ChIP Primers</h3></a>
+           </div> 
+            <div class="col-md-4 myfx">
+              <a href="#Design-Downloads" class="btn btn-info btn-large"> <h3>Downloads and Tools</h3></a>
+            </div>
+      </div>
+  	</div>
+    
+   <hr>
+    
+    
+    <!-- jumbotron mrna -->
+    <div class="container">
+    	<div class="row" id="Design-mRNA">
+        	<div class="jumbotron">
+          		<div class="container">
+            		 <h2 class="muted"><i class="fa fa-cogs fa-lg"></i>&nbsp Design mRNA qPCR Primers</h2>
+                  
+          		</div>
+        	</div>
+        </div>
+    </div>
+    
+    <!-- heading mRNA text -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                 <p><strong>PrimerBot!</strong> is specifically designed to generate mRNA qPCR primers in a high-throughput manner using only a list of gene ids. Primer design style takes exon and coding features into account to identify primers that span exon-exon juctions or to target the 3' UTR. Automated sequence retrieval is done through Genbank and primers are identified using the popular Primer3 program. Results are conveniently written to an Excel file for your records.</p>
+                 <hr>
+             </div>
+         </div>
+    </div>
+  
+ <!-- mRNA form --> 
+    <div class="container">
+      <div class="row">
+      		<div class="col-md-4"> </div>
+      		<div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">mRNA</h3>
+              </div>
+              <div class="panel-body formcolor">
+               <form action="http://primerbot.duhs.duke.edu/cgi-bin/Primerbot/PrimerBot_mRNA_v1.pl" method="post" enctype="multipart/form-data" name="generate">
+         
+                <fieldset>
+                
+                <!-- Form Name -->
+               <!--- <legend>Design mRNA qPCR Primers</legend>
+                
+                <!-- Select Basic -->
+                <div class="control-group">
+                  <label class="control-label" for="selectbasic">Primer Design Style</label>
+                  <div class="controls">
+                    <select id="Type" name="Type" class="input-large">
+                        <OPTION VALUE="SPAN">Span Exon-exon Junctions</OPTION>
+                        <OPTION VALUE="NOSPAN">No-Span</OPTION>
+                        <OPTION VALUE="UTR">Amplify 3'UTR</OPTION>
+                    </select>
+                  </div>
+                </div>
+                
+                <!-- Text input-->
+                    <div class="control-group">
+                      <label class="control-label" for="textinput">No. of Primers for each</label>
+                      <div class="controls">
+                        <input id="Number" name="Number" type="text" value="1" size="3" maxlength="3" class="input-small" required="">
+                        
+                      </div>
+                    </div>
+                
+                <!-- Textarea -->
+                <div class="control-group">
+                  <label class="control-label" for="textarea">Refseq Ids, one per line</label>
+                  <div class="controls">                     
+                    <textarea id="List" name="List" cols="21" rows="3" class="gene" placeholder="NM_004496"></textarea>
+                  </div>
+                </div>
+                
+                <!-- File Button --> 
+                <div class="control-group">
+                  <label class="control-label" for="filebutton">Or upload a file of Refseq Ids</label>
+                  <div class="controls">
+                    <input id="File" name="File" class="input-file" type="file">
+                  </div>
+                </div>
+                
+                <!-- Button -->
+                <div class="control-group">
+                  <label class="control-label" for="singlebutton"></label>
+                  <div class="controls">
+                     <button id="singlebutton" name="singlebutton" class="btn btn-warning"><i class="fa fa-gear fa-lg"></i> Generate mRNA Primers</button>
+                  </div>
+                </div>
+                
+                </fieldset>
+                </form>
+            </div>
+            </div>
+            
+         </div>
+         <div class="col-md-4"></div>
+      </div>
+   </div>
+   
+   <!-- heading mRNA requirements -->
+    <div class="container">
+    	<div class="row">
+    		<div class="lg-12">
+            <ul>
+           <p><strong>	This program uses a tab-delimited text file (.txt) with the first column containing NCBI Accessions.</strong></p>
+          	  	<ul>
+               	  <li>If using a MAC, use Excel and save the file as Windows Formatted Text (.txt).</li>
+               	  <ul>
+                  	<li> Here is an example file: <a href="http://primerbot.duhs.duke.edu/PrimerBot/files/mrna_example.bed"> mRNA-File.txt </a> <small>(Right click, Save As)</small></li>
+                  </ul>
+               	
+               	    <li>Valid  <a href="http://www.ncbi.nlm.nih.gov/RefSeq/key.html#accession"> Genbanks Accessions</a> include those for transcripts and non-coding RNA(NM, NR, XM, XR, AA).</li>
+                    <li>Human Reference:
+                    <ul>
+                        <li>Human<a href="http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/refFlat.txt.gz"> Gene-Symbols</a> to RefSeq.</li>
+                        <li>Human<a href="http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/knownToRefSeq.txt.gz"> UCSC</a> to RefSeq.</li>
+                        <li>Human<a href="http://primerbot.duhs.duke.edu/PrimerBot/files/Ensembl_Refseq_human.txt"> Ensembl</a> to RefSeq.</li>
+                     </ul>
+                     <li> Mouse Reference:
+                     	<ul>
+                        <li>Mouse<a href="http://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/refFlat.txt.gz"> Gene-Symbols</a> to RefSeq.</li>
+                        <li>Mouse<a href="http://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/knownToRefSeq.txt.gz"> UCSC</a> to RefSeq.</li>
+                        <li>Mouse<a href="http://primerbot.duhs.duke.edu/PrimerBot/files/Ensembl_Refseq_mouse.txt"> Ensembl</a> to RefSeq.</li>
+           	    	</ul>
+                </ul>
+               <p> 
+          	 <p><strong>There are three different primer design types to accomodate a wide range of uses.</strong> </p>
+                <ol>
+                  <li><strong>Span Exon-Exon Junctions</strong></li>
+                  <ul style="list-style: none; ">
+                    <li>Ideally qPCR primers are designed to amplify across exon-exon junctions to minimize amplification of genomic DNA by virtue of its size. Even more ideal would be to design the primer to sit across the exon-exon junction so it would be unable to prime the genomic sequence of the transcript at all. This design style annotates the coding regions and exon junctions of the transcripts to assure that at a minimum junctions are spanned.</li>
+                  </ul>
+                  <li><strong>Amplify 3'UTR</strong></li>
+                  <ul style="list-style: none; ">
+                    <li>In the case where one wishes to specifically amplify the endogenous mRNA during an overexpression study. Also, many gene isoforms share a common 3'UTR making this an ideal region to co-amplify all isoforms simultaneously.</li>
+               		</ul>
+                
+                  <li><strong>No-Span</strong></li>
+                <ul style="list-style: none; ">
+                    <li>This style does not use the exon features for primer picking and serves as a fail-safe. </li>
+                  </ul>
+                </ol>
+                <p>
+                <p>Following submission, the results are printed in the webpage with a link to download all the information to an Excel sheet. Gene annotations and other primer properties are all included for good bookeeping. Each primer-pair is also linked to the <a href="http://genome.ucsc.edu/cgi-bin/hgPcr?command=start">In-SilicoPCR</a> database to ensure your products amplify your gene of interest and do not cross amplify other transcripts.</p>
+        </ul>
+            </div>
+         </div>
+    </div>
+   
+    <hr>
+   
+   <!-- jumbotron ChIP -->
+    <div class="container">
+    	<div class="row" id="Design-ChIP">
+        	<div class="jumbotron">
+          		<div class="container">
+            		 <h2 class="muted"><i class="fa fa-cogs fa-lg"></i>&nbsp Design ChIP qPCR Primers</h2>
+                  
+          		</div>
+        	</div>
+        </div>
+    </div>
+    
+    <!-- heading ChIP text -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                 <p><strong>PrimerBot!</strong> can also design primers for ChIP-qPCR. Simply input a bed file of feature locations and PrimerBot will design primer sets that amplify across the <strong>middle</strong> of the genomic region. Don't forget to add a control region for your studies. Amplicon size is set to 60-100bp as ideal and if necessary will look 60-150bp.  </p>
+                 <p></p>
+                 <hr>
+             </div>
+         </div>
+    </div>
+  
+    <!-- ChIP form --> 
+    <div class="container">
+      <div class="row">
+      		<div class="col-md-4"> </div>
+      		<div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">ChIP</h3>
+              </div>
+              <div class="panel-body formcolor">
+                <form class="form-horizontal" form action="http://primerbot.duhs.duke.edu/cgi-bin/Primerbot/PrimerBot_chip_v1.pl" method="post" enctype="multipart/form-data" name="generate">
+                    <fieldset>
+                    
+                    <!-- Form Name -->
+                    <!---<legend>Form Name</legend>>
+                    
+                    <!-- Select Basic -->
+                    <div class="control-group">
+                      <label class="control-label" for="Genome">Genome</label>
+                      <div class="controls">
+                        <select id="Genome" name="Genome" class="input-large">
+                        	<OPTION VALUE="HG19">Human_hg19</OPTION>
+                    		<OPTION VALUE="MM10">Mouse_mm10</OPTION>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <!-- Text input-->
+                    <div class="control-group">
+                      <label class="control-label" for="Number">No. of Primers for each</label>
+                      <div class="controls">
+                        <input id="Number" name="Number" type="text" value="1" size="3" maxlength="3" class="input-small" required="">
+                        
+                      </div>
+                    </div>
+                    
+                    <!-- File Button --> 
+                    <div class="control-group">
+                      <label class="control-label" for="File">BED file, 4cols</label>
+                      <div class="controls">
+                        <input id="File" name="File" class="input-file" type="file">
+                      </div>
+                    </div>
+                    
+                    <!-- Button -->
+                    <div class="control-group">
+                      <label class="control-label" for="singlebutton"></label>
+                      <div class="controls">
+                        <button id="singlebutton" name="singlebutton" class="btn btn-warning"><i class="fa fa-gear fa-lg"></i> Generate ChIP Primers</button>
+                        
+                      </div>
+                    </div>
+                    
+                    </fieldset>
+                    </form>
+
+            </div>
+            </div>
+            
+         </div>
+         <div class="col-md-4"></div>
+      </div>
+   </div>
+   
+    <!-- heading ChIP requirements -->
+    <div class="container">
+    	<div class="row">
+    		<div class="lg-12">
+            <ul>
+           	<p><strong>This program requires a tab-delimited text file (.bed) with default <a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format1"> format</a>,  4 columns are necessary.</strong></p>
+          	<ul>
+            <li>If using a MAC, use Excel and save the file as Windows Formatted Text (.txt) and rename file as (.bed).</li>
+			<ul>
+            <li>Here is an example bed file to get you started:<a href="http://primerbot.duhs.duke.edu/PrimerBot/files/bed_example.bed"> bed-File.bed </a><small>(Right click, Save As)</small></li>
+            </ul>
+          	</ul>
+          	</ul>
+            </div>
+         </div>
+    </div>
+    
+   <hr>
+   
+   <!-- jumbotron Downloads -->
+    <div class="container">
+    	<div class="row" id="Design-Downloads">
+        	<div class="jumbotron">
+          		<div class="container">
+            		 <h2 class="muted"><i class="fa fa-download fa-lg"></i>&nbsp Downloads</h2>
+                  
+          		</div>
+        	</div>
+        </div>
+    </div>
+    
+    <!-- heading downloads text -->
+   <div class="container">
+    	<div class="row">
+    		<div class="lg-12">
+            <ul>
+           <p><strong>	Files available for download.</strong></p>
+          	  	<ul>
+               	    <li>Human<a href="http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/refFlat.txt.gz"> Gene-Symbols</a> to RefSeq.</li>
+                        <li>Human<a href="http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/knownToRefSeq.txt.gz"> UCSC</a> to RefSeq.</li>
+                        <li>Human<a href="http://primerbot.duhs.duke.edu/PrimerBot/files/Ensembl_Refseq_human.txt"> Ensembl</a> to RefSeq.</li>
+                        <li>Mouse<a href="http://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/refFlat.txt.gz"> Gene-Symbols</a> to RefSeq.</li>
+                        <li>Mouse<a href="http://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/knownToRefSeq.txt.gz"> UCSC</a> to RefSeq.</li>
+                        <li>Mouse<a href="http://primerbot.duhs.duke.edu/PrimerBot/files/Ensembl_Refseq_mouse.txt"> Ensembl</a> to RefSeq.</li>
+                    <li>PrimerBot! source code: <a href="https://github.com/jasper1918/PrimerBot"> Github.</a></li>
+                    <li>Excel template to calculate ddCt: <a href=""></a></li>
+                    <li> R-Scripts to calculate ddCt: <a href=""></a></li>
+           	    </ul>
+             </ul>
+             </div
+        ></div>
+    </div>
+    
+    <hr>
+    
+    <!-- jumbotron About -->
+    <div class="container">
+    	<div class="row" id="Design-About">
+        	<div class="jumbotron">
+          		<div class="container">
+            		 <h2 class="muted"><i class="fa fa-question-circle fa-lg"></i>&nbsp About PrimerBot!</h2>
+                  
+          		</div>
+        	</div> 
+        </div>
+    </div>
+    
+    <!-- heading About text -->
+   <div class="container">
+    	<div class="row">
+    		<div class="lg-12">
+        <p>This program was really born out of my own frustrations of spending countless hours designing primers and wishing there was more of an automated solution for such a mundane task. While there are some online tools for designing primers, none of them offer a complete solution from starting with a gene id (what you start with) to return a final list of primers ready for ordering(what you need). Furthermore, no other program to my knowledge offers the one-click option to design primer that span exon-exon junctions. </p>
+          <p>PrimerBot! for mRNA primer design was written as a standalone perl code  and was later adapted to work with this website. It utilizes BioPerl to supply an interface to Genbank, which allows sequence fetching and retrieval of sequence features. These features are then passed to Primer3 which is the mainstay for nearly all primer designing programs. The novely of this program is the capacity to design primers in a high-throughput fashion with little to no time and design them to specifically span the exon-exon junctions.</p>
+          <p>The ChIP primer design is another feature of PrimerBot! that allows rapid primer design when a given a list of genomic locations from a standard bed file.  Sequence retrieval is done through a localfasta of the genome through the Bedtools program and passed to primer3 as before to design primers that amplify across the centermost base pair of the genomic region.</p>
+          <hr>
+          <p><strong> License </strong></p>
+          <p>PrimerBot! is licensed under GNU GPLv3.0 as described <a href="http://www.gnu.org/licenses"> here</a>.</p>
+
+    <p>This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.<p>
+
+    <p>This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.</p>
+
+             </div
+        ></div>
+    </div>
+  
+    
+
+  <hr>     
+	 <!-- footer -->
+   <div id="footer">
+		<div class="container">
+			
+    		<div class="row">
+            <div class="col-lg-4" style="text-align: center;>
+                <a title="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html" href="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html">
+                    <img src="/PrimerBot/pics/d_medicine_horz_rgb.png" width="210" height="42" alt="Duke_logo">
+                </a>
+            </div>
+            <div class="col-lg-4" style="text-align: center;">
+				<ul style="list-style: none">
+                	<li><p>Total Page Hits</p></li>
+                    <li><script type="text/javascript">cid = "219894";</script>
+						<script type="text/javascript" src="http://www.ezwebsitecounter.com/c.js?id=219894"></script><noscript><a href=""></a>
+</noscript></li>
+                </ul>
+			</div>
+            
+            <div class="col-lg-4" style="text-align: center;">
+            <ul style="list-style: none">
+                	<li><p>Unique Visitors <small>(as of Nov 6, 2013)</small></p></li>
+                    <li><script type="text/javascript">cid = "219893";</script>
+						<script type="text/javascript" src="http://www.ezwebsitecounter.com/c.js?id=219893"></script><noscript><a href=""></a>
+</noscript><!-- hitwebcounter.com --><a href="http://www.hitwebcounter.com/countersiteservices.php" title="Unique Visitors" 
+target="_blank"><strong></strong>
+</a>  
+			</div></script></li>
+                </ul>
+				
+   		  </div>
+            <hr>
+            <div class="row">
+            <div class="span-12" style="text-align:center;">
+                <h4><bold>&copy; PrimerBot! 2013 | Duke University | McDonnell Lab | Jeff Jasper | Jasper1918@gmail.com</bold> </h4>
+            </div>
+    		</div>
+		</div>
+      </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="resources/bootstrap.min.js"></script>
+  </body>
+</html>
