@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 ################################################
 #In order to use this program you need primer3 and bedtools installed
-#Also note the use of external bioperl libraries and custom libraries that reside in the cgi-bin/Primerbot directory.
+#Also note the use of external bioperl libraries and custom libraries that reside in the cgi-bin/extra_libs directory.
 #################################################
 use CGI qw(:standard);
 use CGI::Carp qw(warningsToBrowser fatalsToBrowser);
@@ -11,14 +11,12 @@ use File::Basename;
 use FileHandle;
 use POSIX qw(strftime);
 use Excel::Writer::XLSX;
-use File::Basename;
-use FileHandle;
 use IPC::Open3;  
 use Data::Dumper;
 
 use Bio::DB::GenBank;
 
-use lib "/home/primerbot/cgi-bin/Primerbot";
+use lib "cgi-bin/extra_libs";
 use Primer3Output;
 use PrimerPair;
 use Primer;
@@ -26,11 +24,11 @@ use Primer;
 my $query = new CGI;
 my $start_time = time();
 
-#Set file paths here, modifications only need to be done here
+#Set file paths here, modifications only need to be done in this code block
 my $PRIMER3_EXE ='/home/primerbot/resources/primer3-2.3.6/src/primer3_core';
 my $PRIMER_THERMODYNAMIC_PARAMETERS_PATH= '/home/primerbot/resources/primer3-2.3.6/src/primer3_config/';
-my $web_base = "PrimerBot";
-my $basedirectory="/home/primerbot/www/$web_base/";
+my $web_base = "primerbot_dev";
+my $basedirectory="/home/primerbot/mygit/$web_base/";
 #additional directories that need write/read access chmod 644
 my $upload_dir = $basedirectory."Uploads/";
 my $results_dir = $basedirectory."Results/";
