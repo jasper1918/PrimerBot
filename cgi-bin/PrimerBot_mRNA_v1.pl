@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 ################################################
 #In order to use this program you need primer3 and bedtools installed
-#Also note the use of external bioperl libraries and custom libraries that reside in the cgi-bin/Primerbot directory.
+#Also note the use of external bioperl libraries and custom libraries
 #################################################
 use CGI qw(:standard);
 use CGI::Carp qw(warningsToBrowser fatalsToBrowser);
@@ -11,14 +11,11 @@ use File::Basename;
 use FileHandle;
 use POSIX qw(strftime);
 use Excel::Writer::XLSX;
-use File::Basename;
-use FileHandle;
 use IPC::Open3;  
 use Data::Dumper;
 
 use Bio::DB::GenBank;
 
-use lib "/home/primerbot/cgi-bin/Primerbot";
 use Primer3Output;
 use PrimerPair;
 use Primer;
@@ -26,11 +23,11 @@ use Primer;
 my $query = new CGI;
 my $start_time = time();
 
-#Set file paths here, modifications only need to be done here
+#Set file paths here, modifications only need to be done in this code block
 my $PRIMER3_EXE ='/home/primerbot/resources/primer3-2.3.6/src/primer3_core';
 my $PRIMER_THERMODYNAMIC_PARAMETERS_PATH= '/home/primerbot/resources/primer3-2.3.6/src/primer3_config/';
-my $web_base = "PrimerBot";
-my $basedirectory="/home/primerbot/www/$web_base/";
+my $basedirectory="/home/primerbot/mygit/primerbot_dev/htdocs/";
+
 #additional directories that need write/read access chmod 644
 my $upload_dir = $basedirectory."Uploads/";
 my $results_dir = $basedirectory."Results/";
@@ -41,14 +38,14 @@ print $query->header ( "text/html");
 print start_html(
         -title   => 'PrimerBot_mRNA_Results',
         -author  => 'jasper1918@gmail.com',
-        -style   => [{'src' => "/$web_base/resources/bootstrap.min_flatly.css" },
-        			{'src' => "/$web_base/resources/primerbot_style.css"},],
+        -style   => [{'src' => "../resources/bootstrap.min_flatly.css" },
+        			{'src' => "../resources/primerbot_style.css"},],
     );
     
 print '<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">';
 
 print '<body>';
-print '  <div class="navbar navbar-default navbar-fixed-top" role="navigation"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="http://primerbot.duhs.duke.edu/PrimerBot/index.html"></i>PrimerBot!</a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"><li class="active"><a href="http://primerbot.duhs.duke.edu/PrimerBot/index.html">Home</a></li><li><a href="http://primerbot.duhs.duke.edu/PrimerBot/#Design-mRNA">mRNA-qPCR</a></li><li><a href="http://primerbot.duhs.duke.edu/PrimerBot/#Design-ChIP">ChIP-qPCR</a></li><li><a href="http://primerbot.duhs.duke.edu/PrimerBot/#Design-About">About</a></li><li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Useful Links <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="http://probes.pw.usda.gov/batchprimer3/">BatchPrimer3</a></li><li><a href="http://genome.ucsc.edu/cgi-bin/hgPcr?command=start">UCSC in-silico PCR</a></li><li><a href="http://miqe.gene-quantification.info/">MIQE Guidelines</a></li></ul></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html">McDonnell Lab</a></li><li><a href="http://medschool.duke.edu/">Duke University</a></li></ul></div></div>';
+print ' <div class="navbar navbar-default navbar-fixed-top" role="navigation"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="../index.html"></i>PrimerBot!</a></div><div class="navbar-collapse collapse"><ul class="nav navbar-nav"><li class="active"><a href="../index.html">Home</a></li><li><a href="../#Design-mRNA">mRNA-qPCR</a></li><li><a href="../#Design-ChIP">ChIP-qPCR</a></li><li><a href="./#Design-About">About</a></li><li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Useful Links <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="http://probes.pw.usda.gov/batchprimer3/">BatchPrimer3</a></li><li><a href="http://genome.ucsc.edu/cgi-bin/hgPcr?command=start">UCSC in-silico PCR</a></li><li><a href="http://miqe.gene-quantification.info/">MIQE Guidelines</a></li></ul></li></ul><ul class="nav navbar-nav navbar-right"><li><a href="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html">McDonnell Lab</a></li><li><a href="http://medschool.duke.edu/">Duke University</a></li></ul></div></div>';
 print ' <div class="myresults">';
 print '   	<div class="jumbotron">';
 print '      		<div class="container">';
@@ -301,10 +298,10 @@ my $end_time = time();
 my $total_time = ($end_time - $start_time);
 
 print "<p>Total time to auto-generate primers: " . $total_time . " Seconds</p>";
-print "<p><a href=/$web_base/Results/$basename> Download</a> your results in Excel format.</p>";
+print "<p><a href=../Results/$basename> Download</a> your results in Excel format.</p>";
 print '</div>';
 print '<hr>';
-print ' <div id="footer"><div class="container"><div class="row"><div class="col-lg-4" style="text-align: center;><a title="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html" href="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html"><img src="/PrimerBot/pics/d_medicine_horz_rgb.png" width="210" height="42" alt="Duke_logo"></a></div><div class="col-lg-4" style="text-align: center;"><ul style="list-style: none"><li><p>Total Page Hits</p></li><li><script type="text/javascript">cid="219894";</script><script type="text/javascript" src="http://www.ezwebsitecounter.com/c.js?id=219894"></script><noscript><a href="http://www.ezwebsitecounter.com/"></a></noscript></li></ul></div><div class="col-lg-4" style="text-align: center;"><ul style="list-style: none"><li><p>Unique Visitors</p></li><li><script type="text/javascript">cid="219893";</script><script type="text/javascript" src="http://www.ezwebsitecounter.com/c.js?id=219893"></script><noscript><a href="http://www.ezwebsitecounter.com/">free hit counter ezwebsitecounter.com</a></noscript><a href="http://www.hitwebcounter.com/countersiteservices.php" title="Unique Visitors" target="_blank"><strong></strong></a></div></script></li></ul></div><hr><div class="row"><div class="span-12" style="text-align:center;"><h4><bold>&copy;PrimerBot! 2013 | Duke University | McDonnell Lab | Jeff Jasper | Jasper1918@gmail.com</bold></h4></div></div></div></div>';
+print ' <div id="footer"><div class="container"><div class="row"><div class="col-lg-4" style="text-align: center;><a title="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html" href="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html"><img src="../pics/d_medicine_horz_rgb.png" width="210" height="42" alt="Duke_logo"></a></div><div class="col-lg-4" style="text-align: center;"><ul style="list-style: none"><li><p>Total Page Hits</p></li><li><script type="text/javascript">cid="219894";</script><script type="text/javascript" src="http://www.ezwebsitecounter.com/c.js?id=219894"></script><noscript><a href=""></a></noscript></li></ul></div><div class="col-lg-4" style="text-align: center;"><ul style="list-style: none"><li><p>Unique Visitors</p></li><li><script type="text/javascript">cid="219893";</script><script type="text/javascript" src="http://www.ezwebsitecounter.com/c.js?id=219893"></script><noscript><a href="">free hit counter ezwebsitecounter.com</a></noscript><a href="http://www.hitwebcounter.com/countersiteservices.php" title="Unique Visitors" target="_blank"><strong></strong></a></div></script></li></ul></div><hr><div class="row"><div class="span-12" style="text-align:center;"><h4><bold>&copy;PrimerBot! 2013 | Duke University | McDonnell Lab | Jeff Jasper | Jasper1918@gmail.com</bold></h4></div></div></div></div>';
 print end_html;
 #### the end of the main program
 
