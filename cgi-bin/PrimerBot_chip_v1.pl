@@ -145,6 +145,14 @@ if ($genome eq "HG19"){
 print "<h6> $genomefapath </h6> </div>";
 
 system("bedtools", "getfasta", "-fi", "$genomefapath", "-bed", "$upload_dir"."$filename", "-name" ,"-fo", "$bedoutfilename");
+if ( $? == -1 )
+{
+  print "command failed: $!\n";
+}
+else
+{
+  printf "command exited with value %d", $? >> 8;
+}
 
 #create local excelworksheet to write output to.
 my $excelresults= $results_dir.$displaydate.'_ChIP_PrimerResults.xlsx';
