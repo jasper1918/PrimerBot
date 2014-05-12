@@ -16,7 +16,6 @@ use Data::Dumper;
 
 use Bio::DB::GenBank;
 
-use lib "cgi-bin/extra_libs";
 use Primer3Output;
 use PrimerPair;
 use Primer;
