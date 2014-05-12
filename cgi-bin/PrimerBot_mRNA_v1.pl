@@ -38,8 +38,8 @@ print $query->header ( "text/html");
 print start_html(
         -title   => 'PrimerBot_mRNA_Results',
         -author  => 'jasper1918@gmail.com',
-        -style   => [{'src' => "/$basedirectory/resources/bootstrap.min_flatly.css" },
-        			{'src' => "/$basedirectory/resources/primerbot_style.css"},],
+        -style   => [{'src' => "/$basedirectory"."resources/bootstrap.min_flatly.css" },
+        			{'src' => "/$basedirectory"."resources/primerbot_style.css"},],
     );
     
 print '<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">';
