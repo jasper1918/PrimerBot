@@ -26,8 +26,8 @@ my $start_time = time();
 #Set file paths here, modifications only need to be done in this code block
 my $PRIMER3_EXE ='/home/primerbot/resources/primer3-2.3.6/src/primer3_core';
 my $PRIMER_THERMODYNAMIC_PARAMETERS_PATH= '/home/primerbot/resources/primer3-2.3.6/src/primer3_config/';
-my $web_base = "htdocs";
-my $basedirectory="/home/primerbot/mygit/primerbot_dev/$web_base/";
+my $web_base = "primerbot_dev";
+my $basedirectory="/home/primerbot/mygit/$web_base/";
 #additional directories that need write/read access chmod 644
 my $upload_dir = $basedirectory."Uploads/";
 my $results_dir = $basedirectory."Results/";
