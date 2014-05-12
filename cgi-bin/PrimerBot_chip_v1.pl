@@ -134,7 +134,7 @@ my $bedoutfilename = $results_dir.$displaydate.'_fastafrombed.fasta';
 my $genomefapath;
 print "<h6> $bedinfile </h6> </div>";
 print "<h6> $bedoutfilename </h6> </div>";
-print "<h6> $genomefapath </h6> </div>";
+
 
 if ($genome eq "HG19"){
     $genomefapath = $genomefapathhg19;
@@ -142,7 +142,11 @@ if ($genome eq "HG19"){
     $genomefapath = $genomefapathmm10;
 }
 
+print "<h6> $genomefapath </h6> </div>";
+
 system("bedtools", "getfasta", "-fi", "$genomefapath", "-bed", "$upload_dir"."$filename", "-name" ,"-fo", "$bedoutfilename");
+
+print "system("bedtools", "getfasta", "-fi", "$genomefapath", "-bed", "$upload_dir"."$filename", "-name" ,"-fo", "$bedoutfilename")";
 
 #create local excelworksheet to write output to.
 my $excelresults= $results_dir.$displaydate.'_ChIP_PrimerResults.xlsx';
