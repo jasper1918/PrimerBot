@@ -29,7 +29,7 @@ $ENV{PATH} = "$PROGRAM_DIR:$ENV{PATH}" if $PROGRAM_DIR;
 my $primer3path ='/home/primerbot/resources/primer3-2.3.6/src/primer3_core';
 my $PRIMER_THERMODYNAMIC_PARAMETERS_PATH= '/home/primerbot/resources/primer3-2.3.6/src/primer3_config/';
 my $bedtoolspath ='/home/primerbot/resources/bedtools-2.17.0/bin';
-my $basedirectory="/home/primerbot/mygit/primerbot_dev/htdocs/";
+my $basedirectory="/home/primerbot/mygit/primerbot_master/htdocs/";
 my $genomefapathhg19= '/home/primerbot/resources/hg19_genome.fa';
 my $genomefapathmm10= '/home/primerbot/resources/mm10_genome.fa';
 
