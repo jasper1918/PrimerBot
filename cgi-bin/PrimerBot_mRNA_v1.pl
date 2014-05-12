@@ -146,7 +146,7 @@ if ( !$filename ){
 
 ###create local excelworksheet to write output to.
 my $filepath= $results_dir.$displaydate.'_PrimerResults.xlsx';
- #print "<p> $filepath";
+ print "<p> $filepath";
 my $basename= ($displaydate."_PrimerResults.xlsx");
 my $workbook = Excel::Writer::XLSX->new($filepath );
     die "Problems creating new Excel file: $!" unless defined $workbook;
