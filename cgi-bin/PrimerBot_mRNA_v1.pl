@@ -50,10 +50,9 @@ print ' <div class="myresults">';
 print '   	<div class="jumbotron">';
 print '      		<div class="container">';
 print '        		<h1>PrimerBot! mRNA Results</h1>';
-print '        		<h1> $upload_dir</h1>';
 print '     		</div></div></div>';
 
-print '<div class="container">'
+print '<div class="container">';
 
 unless (-e $PRIMER3_EXE) {
     print '<div class="alert alert-warning">';
