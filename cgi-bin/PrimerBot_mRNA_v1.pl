@@ -50,7 +50,6 @@ print ' <div class="myresults">';
 print '   	<div class="jumbotron">';
 print '      		<div class="container">';
 print '        		<h1>PrimerBot! mRNA Results</h1>';
-print "     		<h1>$upload_dir</h1>";
 print '     		</div></div></div>';
 
 print '<div class="container">';
@@ -146,7 +145,7 @@ if ( !$filename ){
 
 ###create local excelworksheet to write output to.
 my $filepath= $results_dir.$displaydate.'_PrimerResults.xlsx';
- print "<p> $filepath";
+ #print "<p> $filepath";
 my $basename= ($displaydate."_PrimerResults.xlsx");
 my $workbook = Excel::Writer::XLSX->new($filepath );
     die "Problems creating new Excel file: $!" unless defined $workbook;
@@ -302,7 +301,7 @@ print "<p>Total time to auto-generate primers: " . $total_time . " Seconds</p>";
 print "<p><a href=/$web_base/Results/$basename> Download</a> your results in Excel format.</p>";
 print '</div>';
 print '<hr>';
-print ' <div id="footer"><div class="container"><div class="row"><div class="col-lg-4" style="text-align: center;><a title="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html" href="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html"><img src="/PrimerBot/pics/d_medicine_horz_rgb.png" width="210" height="42" alt="Duke_logo"></a></div><div class="col-lg-4" style="text-align: center;"><ul style="list-style: none"><li><p>Total Page Hits</p></li><li><script type="text/javascript">cid="219894";</script><script type="text/javascript" src="http://www.ezwebsitecounter.com/c.js?id=219894"></script><noscript><a href="http://www.ezwebsitecounter.com/"></a></noscript></li></ul></div><div class="col-lg-4" style="text-align: center;"><ul style="list-style: none"><li><p>Unique Visitors</p></li><li><script type="text/javascript">cid="219893";</script><script type="text/javascript" src="http://www.ezwebsitecounter.com/c.js?id=219893"></script><noscript><a href="http://www.ezwebsitecounter.com/">free hit counter ezwebsitecounter.com</a></noscript><a href="http://www.hitwebcounter.com/countersiteservices.php" title="Unique Visitors" target="_blank"><strong></strong></a></div></script></li></ul></div><hr><div class="row"><div class="span-12" style="text-align:center;"><h4><bold>&copy;PrimerBot! 2013 | Duke University | McDonnell Lab | Jeff Jasper | Jasper1918@gmail.com</bold></h4></div></div></div></div>';
+print ' <div id="footer"><div class="container"><div class="row"><div class="col-lg-4" style="text-align: center;><a title="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html" href="http://pharmacology.mc.duke.edu/faculty/mcdonnell.html"><img src="../pics/d_medicine_horz_rgb.png" width="210" height="42" alt="Duke_logo"></a></div><div class="col-lg-4" style="text-align: center;"><ul style="list-style: none"><li><p>Total Page Hits</p></li><li><script type="text/javascript">cid="219894";</script><script type="text/javascript" src="http://www.ezwebsitecounter.com/c.js?id=219894"></script><noscript><a href="http://www.ezwebsitecounter.com/"></a></noscript></li></ul></div><div class="col-lg-4" style="text-align: center;"><ul style="list-style: none"><li><p>Unique Visitors</p></li><li><script type="text/javascript">cid="219893";</script><script type="text/javascript" src="http://www.ezwebsitecounter.com/c.js?id=219893"></script><noscript><a href="http://www.ezwebsitecounter.com/">free hit counter ezwebsitecounter.com</a></noscript><a href="http://www.hitwebcounter.com/countersiteservices.php" title="Unique Visitors" target="_blank"><strong></strong></a></div></script></li></ul></div><hr><div class="row"><div class="span-12" style="text-align:center;"><h4><bold>&copy;PrimerBot! 2013 | Duke University | McDonnell Lab | Jeff Jasper | Jasper1918@gmail.com</bold></h4></div></div></div></div>';
 print end_html;
 #### the end of the main program
 
