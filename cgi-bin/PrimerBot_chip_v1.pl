@@ -2,7 +2,7 @@
 ################################################
 #In order to use this program you need primer3 and bedtools installed
 #Also note the use of custom libraries 
-
+#by JSJ
 
 use POSIX qw(strftime);
 use strict;
