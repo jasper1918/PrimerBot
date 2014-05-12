@@ -271,13 +271,24 @@ sub export_primers {
 	    uc($reverse_primer_obj->sequence())
 	);
     
+   	my $mmChIP_URL = '"http://genome.ucsc.edu/cgi-bin/hgPcr?hgsid=319719509&org=Mouse&db=mm10&wp_target=genome&wp_f'.$row_forward[8]."+&wp_r=".$row_reverse[8].'+&Submit=submit&wp_size=4000&wp_perfect=15&wp_good=15&boolshad.wp_flipReverse=0"';
+	my $hgChIP_URL = '"http://genome.ucsc.edu/cgi-bin/hgPcr?hgsid=320998975&org=Human&db=hg19&wp_target=genome&wp_f='.$row_forward[8]."+&wp_r=".$row_reverse[8].'+&Submit=submit&wp_size=4000&wp_perfect=15&wp_good=15&boolshad.wp_flipReverse=0"';
+	my $mylink;
+	
+	my 
+	
+	if ( $genome eq "HG19") {
+	    $mylink ='=HYPERLINK('.$hgChIP_URL.',"UCSC")';
+	}
+       if ( $genome eq "MM10") {
+	    $mylink ='=HYPERLINK('.$mmChIP_URL.',"UCSC")';
+	}
         
-	my $hsChIP_URL = '"http://genome.ucsc.edu/cgi-bin/hgPcr?hgsid=320998975&org=Human&db=hg19&wp_target=genome&wp_f='.$row_forward[8]."+&wp_r=".$row_reverse[8].'+&Submit=submit&wp_size=4000&wp_perfect=15&wp_good=15&boolshad.wp_flipReverse=0"';
-	my $mylink ='=HYPERLINK('.$hsChIP_URL.',"UCSC")';
+	
 	
 	$worksheet->write( $rowcount, 0 , $index);
 	$worksheet->write( $rowcount, 1 , $id);
-        $worksheet->write( $rowcount, 2 , "hg19");
+        $worksheet->write( $rowcount, 2 , "$genome");
 	$worksheet->write( $rowcount, 3, "ChIP");
 	$worksheet->write( $rowcount, 4 , \@row_forward);
 	$worksheet->write( $rowcount, 17, $mylink);
@@ -286,7 +297,7 @@ sub export_primers {
 	
 	$worksheet->write( $rowcount, 0 , $index);
 	$worksheet->write( $rowcount, 1 , $id);
-        $worksheet->write( $rowcount, 2 , "hg19");
+        $worksheet->write( $rowcount, 2 , "$genome");
 	$worksheet->write( $rowcount, 3, "ChIP");
 	$worksheet->write( $rowcount, 4 , \@row_reverse);
 	
