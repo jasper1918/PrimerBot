@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 ################################################
 #In order to use this program you need primer3 and bedtools installed
-#Also note the use of external bioperl libraries and custom libraries that reside in the cgi-bin/extra_libs directory.
+#Also note the use of external bioperl libraries and custom libraries
 #################################################
 use CGI qw(:standard);
 use CGI::Carp qw(warningsToBrowser fatalsToBrowser);
@@ -27,6 +27,7 @@ my $start_time = time();
 my $PRIMER3_EXE ='/home/primerbot/resources/primer3-2.3.6/src/primer3_core';
 my $PRIMER_THERMODYNAMIC_PARAMETERS_PATH= '/home/primerbot/resources/primer3-2.3.6/src/primer3_config/';
 my $basedirectory="/home/primerbot/mygit/primerbot_dev/htdocs/";
+
 #additional directories that need write/read access chmod 644
 my $upload_dir = $basedirectory."Uploads/";
 my $results_dir = $basedirectory."Results/";
