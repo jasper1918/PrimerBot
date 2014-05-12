@@ -271,7 +271,7 @@ sub export_primers {
 	    uc($reverse_primer_obj->sequence())
 	);
     
-   	my $mmChIP_URL = '"http://genome.ucsc.edu/cgi-bin/hgPcr?hgsid=319719509&org=Mouse&db=mm10&wp_target=genome&wp_f'.$row_forward[8]."+&wp_r=".$row_reverse[8].'+&Submit=submit&wp_size=4000&wp_perfect=15&wp_good=15&boolshad.wp_flipReverse=0"';
+   	my $mmChIP_URL = '"http://genome.ucsc.edu/cgi-bin/hgPcr?hgsid=372658971_rrGfWWTxsDRCMUHlxnaRzpQ8aWFh&org==Mouse&db=mm10&wp_target=genome&wp_f'.$row_forward[8]."+&wp_r=".$row_reverse[8].'+&Submit=submit&wp_size=4000&wp_perfect=15&wp_good=15&boolshad.wp_flipReverse=0"';
 	my $hgChIP_URL = '"http://genome.ucsc.edu/cgi-bin/hgPcr?hgsid=320998975&org=Human&db=hg19&wp_target=genome&wp_f='.$row_forward[8]."+&wp_r=".$row_reverse[8].'+&Submit=submit&wp_size=4000&wp_perfect=15&wp_good=15&boolshad.wp_flipReverse=0"';
 	my $mylink;
 	
