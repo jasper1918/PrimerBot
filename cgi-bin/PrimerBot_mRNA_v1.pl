@@ -362,8 +362,8 @@ sub export_primers {
 	    uc($right_primer_obj->sequence())
 	);
 	    
-	my $my_hs_URL = '"http://genome.ucsc.edu/cgi-bin/hgPcr?db=hg19&wp_f='.$row_left[8]."+&wp_r=".$row_right[8].'+&Submit=submit&wp_size=4000&wp_perfect=15&wp_good=15&boolshad.wp_flipReverse=0"';  
-	my $my_mm_URL = '"http://genome.ucsc.edu/cgi-bin/hgPcr?db=mm10&wp_f='.$row_left[8]."+&wp_r=".$row_right[8].'+&Submit=submit&wp_size=4000&wp_perfect=15&wp_good=15&boolshad.wp_flipReverse=0"';
+	my $my_hs_URL = '"http://genome.ucsc.edu/cgi-bin/hgPcr?&org=Human&db=hg19&wp_target=hg19Kgv14&wp_f='.$row_left[8]."+&wp_r=".$row_right[8].'+&Submit=submit&wp_size=4000&wp_perfect=15&wp_good=15&boolshad.wp_flipReverse=0"';  
+	my $my_mm_URL = '"http://genome.ucsc.edu/cgi-bin/hgPcr?&org=Mouse&db=mm10&wp_target=mm10KgSeq7&wp_f='.$row_left[8]."+&wp_r=".$row_right[8].'+&Submit=submit&wp_size=4000&wp_perfect=15&wp_good=15&boolshad.wp_flipReverse=0"';
 	my $mylink;
 	
 	if ( $organism eq "Homo sapiens") {
