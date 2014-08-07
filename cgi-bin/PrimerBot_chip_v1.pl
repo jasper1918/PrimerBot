@@ -239,8 +239,8 @@ sub export_primers {
 	
 	#name for primers
 	 my @primername = split(/\:|\-/, $id);
-	$bed  =~ s{^\s+|\s+$}{}g; #removes all whitespace and lines
-    $bed =~ s/\W//g; #removes all but alphanumeric
+	$primername[0]  =~ s{^\s+|\s+$}{}g; #removes all whitespace and lines
+    $primername[0]  =~ s/\W//g; #removes all but alphanumeric
 	
 	#print forward primer
 	my $forward_primer_obj = $primer_pair->left_primer();
