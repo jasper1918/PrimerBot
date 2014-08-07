@@ -250,7 +250,7 @@ sub export_primers {
 	    $forward_primer_obj->gc(),
 	    $forward_primer_obj->any_complementarity(),
 	    $forward_primer_obj->end_complementarity(),
-	    my $forname = $primername[0].":".$primername[1]."_".$forward_primer_obj->start()."_F",
+	    my $forname = $primername[0].$primername[1]."_".$forward_primer_obj->start()."_F",
 	    uc($forward_primer_obj->sequence()),
 	    $primer_pair->product_size(),
 	    $primer_pair->seq_size(),
@@ -267,7 +267,7 @@ sub export_primers {
 	    $reverse_primer_obj->gc(),
 	    $reverse_primer_obj->any_complementarity(),
 	    $reverse_primer_obj->end_complementarity(),
-	    my $revname = $primername[0].":".$primername[1]."_".$reverse_primer_obj->start()."_R",
+	    my $revname = $primername[0].$primername[1]."_".$reverse_primer_obj->start()."_R",
 	    uc($reverse_primer_obj->sequence())
 	);
     

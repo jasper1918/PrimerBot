@@ -1,7 +1,10 @@
 #!/usr/bin/perl
 ################################################
+#Designs primers using primer3_core for mRNA: exon-spanning, 3-UTR, or no-span options.
+#use CGI to get geneids, primer design style, and number of primers to design per feature from web form.
 #In order to use this program you need primer3 and bedtools installed
 #Also note the use of external bioperl libraries and custom libraries
+#Jeff S Jasper, Jasper1918@gmail.com
 #################################################
 use CGI qw(:standard);
 use CGI::Carp qw(warningsToBrowser fatalsToBrowser);
@@ -160,7 +163,7 @@ my $rowcount = 1;
 my $index = 0;
 
 
-##query NCBI to pull sequence and info.
+###query NCBI to pull sequence and info.
 my $db = Bio::DB::GenBank->new(-retrievaltype => 'tempfile');
 my $seqio = $db->get_Stream_by_id(\@geneids );
 
