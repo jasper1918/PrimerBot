@@ -84,7 +84,7 @@ if ( !$filename ){
 	@geneids = split(/\n/,$gene_list);
 	foreach (@geneids){
 		if ($_ =~ /\./) {     
-			$_= substr($_, 0, index($_, '.'));
+			$_= substr($_, 0, index($_, '.')); # remove version numbers from transcripts
 			}
 	}
 }else{
@@ -141,10 +141,13 @@ if ( !$filename ){
 	
 }
 @geneids = map { uc $_ } @geneids;
-
+@geneids= grep { $_ ne '' } @geneids;
+@geneids = map{ (s/\s*$//)&&$_} @geneids;;
 
 #print "<p> $filename";
-#print "<p> @geneids";
+#print "<p> @geneids"; 
+# print Dumper(@geneids);
+# @geneids = ("NM_004496", "NM_004497");
 
 ###create local excelworksheet to write output to.
 my $filepath= $results_dir.$displaydate.'_PrimerResults.xlsx';
@@ -166,7 +169,6 @@ my $index = 0;
 ###query NCBI to pull sequence and info.
 my $db = Bio::DB::GenBank->new(-retrievaltype => 'tempfile');
 my $seqio = $db->get_Stream_by_id(\@geneids );
-
 
 while( my $seq  =  $seqio->next_seq ) {
     my $refseq= $seq->accession_number;
